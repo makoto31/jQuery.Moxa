@@ -5,7 +5,7 @@ Dividing a JavaScript file. No global pollution. Lightweight simple library.
 Include script after the jQuery library.
 
 ```html
-<script src="/path/to/jQuery.Moxa.min.js"></script>
+<script src="/path/to/jquery.moxa.min.js"></script>
 ```
 
 ## How to use
@@ -92,7 +92,7 @@ Just observe the following rules, readability, maintainability will be greatly i
 * Click event handler registration is done in the immediate function of View.
 
 ## jQuery.Moxa Objects
-![image](http://makoto31.github.io/jQuery.Moxa/pages/ER.png "image")
+![image](http://makoto31.github.io/jquery.moxa/pages/ER.png "image")
 
 ### Controller
 
@@ -152,8 +152,8 @@ This will contact the server at the POST request.
 By passing an object that keys and functions as a set in it, you will be able to extend the Ajax. Common ajax processing, for example, it is useful to register and the like want to do a specific process in the request failure.
 
 ## Examples
-* [gallery](https://github.com/makoto31/jQuery.Moxa/tree/master/example "gallery")
-* [gallery with gulp](https://github.com/makoto31/jQuery.Moxa/tree/master/example_gulp "gallery with gulp")
+* [gallery](https://github.com/makoto31/jquery.moxa/tree/master/example "gallery")
+* [gallery with gulp](https://github.com/makoto31/jquery.moxa/tree/master/example_gulp "gallery with gulp")
 
 ## License
-Licensed under [MIT License](https://github.com/makoto31/jQuery.Moxa/blob/master/LICENSE.txt "MIT License")
+Licensed under [MIT License](https://github.com/makoto31/jquery.moxa/blob/master/LICENSE.txt "MIT License")
