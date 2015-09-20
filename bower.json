@@ -22,6 +22,7 @@
     "tests",
     "_dev",
     "example",
+    "example_gulp",
     "jquery.moxa.jquery.json"
   ],
   "dependencies":{
