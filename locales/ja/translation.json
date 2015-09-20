@@ -1,0 +1,79 @@
+{
+	"board":{
+		"dividing": "いくつかの役割ごとにファイルを分ける仕組みを提供します。全てのコードを１つのスクリプトファイルに詰め込まなくてよいのです。さらに、gulp等で１ファイルに結合してminifyしても動作します。"
+		,"global": "無意味にグローバル関数を定義することを抑止します。誰かが書いたグローバル関数に悩まされる事はありません。"
+		,"simple": "覚えるのは簡単です。あなたならすぐにでも使いこなせるでしょう。jQuery.Moxaはシンプルなルールを提供するだけです。もし多くの機能を望むなら他のライブラリを使いましょう。"
+	}
+	,"markdown":{
+		"installation": "jQueryの後に読み込んでください"
+		,"features": {
+			"1": "役割でソースファイルを分ける"
+			,"2": "軽量、シンプル、イージー"
+			,"3": "No Single Pag Applicatin framework"
+			,"4": "gulpでファイル結合＆minifyも可能"
+		}
+		,"target": {
+			"1": "Ajax通信を行うページ"
+			,"2": "1000行以上のJavaScriptコード"
+			,"3": "インタラクティブなUI（クリック、メッセージボックス、CSS操作...etc）"
+			,"4": "既存の資産（jQuery等）を活かしたい"
+			,"5": "Angular, React, Backboneは難しい or 使うまでもない"
+		}
+		,"rules": {
+			"comment": "以下のルールに従うだけで、可読性・メンテナンス性が格段に向上します。"
+			,"1": "Ajax処理はControllerで行う（ViewでAjaxコールしない）"
+			,"2": "Ajaxで取得したデータはControllerで保持し、必要に応じてViewに渡す（データの持ち主明確化）"
+			,"3": "DOM操作はViewで行う（Controllerで$.find()等をしない）"
+			,"4": "クリックイベント登録はViewの即時関数の中で行う（可読性の向上）"
+		}
+		,"use": {
+			"1": "controllerの関数は$(document).ready()もしくはExt.onReady()から実行されます。"
+			,"2": "jQuery.Moxaが提供する役割(controller, view..etc)ごとに処理を実装することで、グローバル関数定義することを抑制されます。"
+			,"3": "各役割は関数の引数、または、jQuery.Moxaのオブザーバー経由で実行されるため、gulp等での結合&minifyしても問題なく動作します。"
+		}
+		,"controller": {
+			"comment": "callbackは$(document).ready()もしくはExt.onReady()から実行されます。主にajaxの実行・データ処理・viewの呼び分けを実装してください。callbackは１つだけ登録することができます。"
+			,"callback":{
+				"1": "views: $.moxa.view()で登録したViewオブジェクト。View側で登録された関数に通知することができます。"
+				,"2": "observer: observer.set()関数に受信用のオブジェクトを登録することで、Viewからのオブザーバー通知を受け取ることができます。"
+				,"3": "def: $.moxa.def()で登録したDefオブジェクト。"
+				,"4": "util: Utilオブジェクト"
+				,"5": "ajax: Ajaxオブジェクト"
+			}
+		}
+		,"view": {
+			"comment": "nameはController callbackで識別しやすい文字列を指定してください。callbackは$(document).ready()もしくはExt.onReady()から実行されます。主にClick・DOM・CSS関連の処理を実装してください。Viewは複数登録することができます。"
+			,"callback":{
+				"1": "controller: controller.set()関数で受信用のオブジェクトを登録することで、Controllerからのオブザーバー通知を受け取ることができます。また、Controllerで登録済みの関数を呼び出し通知することもできます。"
+				,"2": "def: $.moxa.def()で登録したDefオブジェクト。"
+				,"3": "util: Utilオブジェクト"
+				,"4": "viewObserver: viewObserver.set()関数で受信用のオブジェクトを登録することで、別Viewからのオブザーバー通知を受け取ることができます。また、別Viewで登録済みの関数を呼び出して通知するこができます。"
+			}
+		}
+		,"util": {
+			"empty": "null, [ ], 空文字の場合falseを返します。"
+			,"show": "elが非表示(display: none)の場合falseを返します。"
+			,"define": "キーと関数がセットになったオブジェクトを渡すことで、Utilを拡張することができます。"
+		}
+		,"def": {
+			"define": "キーと値がセットになったオブジェクトを渡すことで、Defに登録することができます。URL・設定値・フラグ・メッセージ文字列等を登録すると便利です。"
+		}
+		,"ajax": {
+			"get": {
+				"comment": "GETリクエストでサーバに問い合わせます。"
+				,"1": "url: 問い合わせURL"
+				,"2": "data: サーバに送信する値"
+				,"3": "success: 成功時に呼び出されるAjax Event"
+				,"4": "error: 失敗時に呼び出されるAjax Event"
+			}
+			,"post": {
+				"comment": "POSTリクエストでサーバに問い合わせます。"
+				,"1": "url: 問い合わせURL"
+				,"2": "data: サーバに送信する値"
+				,"3": "success: 成功時に呼び出されるAjax Event"
+				,"4": "error: 失敗時に呼び出されるAjax Event"
+			}
+			,"define": "キーと関数がセットになったオブジェクトを渡すことで、Ajaxを拡張することができます。共通的なajax処理、例えば通信失敗時に特定の処理を行いたい等を登録すると便利です。"
+		}
+	}
+}

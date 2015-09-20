@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<title>jQuery.Moxa</title>
+	<meta property='og:site_name' content='jQuery.Moxa' />
+	<meta property='og:title' content='jQuery.Moxa' />
+	<meta name="twitter:title" content="jQuery.Moxa" />
+
+	<meta name='author' content='makoto'>
+	<meta name="twitter:site" content="@MSitter29" />
+	<meta name="twitter:creator" content="@MSitter29" />
+
+	<meta name='description' content='Dividing a JavaScript file. No global pollution. Lightweight simple library.'>
+	<meta property='og:description' content='Dividing a JavaScript file. No global pollution. Lightweight simple library.' />
+	<meta name="twitter:description" content="Dividing a JavaScript file. No global pollution. Lightweight simple library." />
+
+	<meta property='og:url' content='http://makoto31.github.io/jquery.moxa/' />
+	<meta name="twitter:url" content="http://makoto31.github.io/jquery.moxa/" />
+
+	<meta property='og:type' content='article' />
+	<meta name="twitter:card" content="summary" />
+
+	<link rel='stylesheet' href='pages/normalize.css'>
+	<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github.min.css'>
+	<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,300italic'>
+	<link rel='stylesheet' href='pages/style.css'>
+	<script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='pages/i18next-1.10.1.min.js'></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js'></script>
+	<script>
+		i18n.init(function(err, t){
+			$('body').i18n();
+		});
+		hljs.initHighlightingOnLoad();
+	</script>
+	<script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+	
+	<meta itemprop="datePublished" content="2015-09-11"/>
+</head>
+<body>
+<article>
+	<section class='cs-board header'>
+		<div>
+			<h1 class='center'>jQuery.Moxa</h1>
+			<h4 class='center'>Dividing a JavaScript file. No global pollution. Lightweight simple library.</h4>
+			<h3 class='center'><a class='cs-button' href='https://github.com/makoto31/jquery.moxa'>CODE v0.6.0</a></h3>
+		</div>
+	</section>
+	<section class='cs-board'>
+		<div class='cs-intro'>
+			<h2>DIVIDING</h2>
+			<p data-i18n='board.dividing'>It provides a mechanism to separate JavaScript files for each several roles. And you may not write all of the code into a JavaScript file. In addition, it can work when concat files and minify by gulp.</p>
+		</div>
+	</section>
+	<section class='cs-board'>
+		<div class='cs-intro'>
+			<h2>NO GLOBAL</h2>
+			<p data-i18n='board.global'>It deters that you define global functions without reason. You don't have to suffer from the global function that someone wrote.</p>
+		</div>
+	</section>
+	<section class='cs-board'>
+		<div class='cs-intro'>
+			<h2>SIMPLE</h2>
+			<p data-i18n='board.simple'>It is easy to remember. You'll be able to master even immediately. jQuery.Moxa only provides a simple rule. Let's use another library if desired a number of functions.</p>
+		</div>
+	</section>
+</article>
+<article class='cs-markdown'>
+	<section>
+		<h4 class='cs-sns'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+			<a class="tumblr-share-button" data-color="blue" data-notes="none" href="https://embed.tumblr.com/share"></a>
+			<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+			<a href="http://b.hatena.ne.jp/entry/http://makoto31.github.io/jquery.moxa/" class="hatena-bookmark-button" data-hatena-bookmark-title="jquery.moxa" data-hatena-bookmark-layout="standard-noballoon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+		</h4>
+	</section>
+	<section>
+		<h2>Installation</h2>
+		<p data-i18n='markdown.installation'>Include script after the jQuery library.</p>
+		<pre><code>&lt;script src="/path/to/jquery.moxa.min.js"&gt;&lt;/script&gt;</code></pre>
+		<h2>How to use</h2>
+		<pre><code>
+// Controller
+$.moxa.controller(function(aViews, aObserver, aDef, aUtil, aAjax){
+    // set view -> controller received functions
+    aObserver.set({
+        some: function(data){
+        	// do something.
+        }
+    });
+
+    // ajax data.
+    var mData = {
+     	some: null
+    };
+
+    // get somejson
+    aAjax.get('some.json', function(data){
+    	// save data.
+    	mData.some = data;
+        // send data to view
+        aViews.top.init(mData.some);
+    });
+
+    // window.Moxa is assigned the object. be able to access of global.
+    return {
+     	swf: function(){
+     		// do something.
+     	}
+    }
+});
+		</code></pre>
+		<code><pre>
+// Top View
+$.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
+    // set controller -> view received functions
+    aController.set({
+        init: function(data){
+            // do something.
+        }
+    });
+
+    // click events.
+    (function(){
+        $('#button').on('click', function(){
+            // trigger to controller.
+            aController.some();
+        });
+    })();
+
+    // define functions.
+    // $.append(), $.remove(), $hide(), $.addClass()........etc
+});
+		</code></pre>
+		<p data-i18n='markdown.use.1'>controller's function is executed from $(document).ready() or Ext.onReady().</p>
+		<p data-i18n='markdown.use.2'>jQuery.Moxa By is to implement the process for each role(controller, view..etc) to provide, is suppressed to be a global function definition.</p>
+		<p data-i18n='markdown.use.3'>Each role function of the argument , or , is done via observer of jQuery.Moxa. And also it works to concat files and minify by gulp.</p>
+	</section>
+	<section>
+		<h2>Features</h2>
+		<ul class='cs-list-check'>
+			<li data-i18n='markdown.features.1'>Dividing a JavaScript file</li>
+			<li data-i18n='markdown.features.2'>Lightweight, simple, easy</li>
+			<li data-i18n='markdown.features.3'>No Single Pag Applicatin framework</li>
+			<li data-i18n='markdown.features.4'>It is also possible to concat files and minify by gulp</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Targets</h2>
+		<ul class='cs-list-check'>
+			<li data-i18n='markdown.target.1'>Page that performs Ajax request</li>
+			<li data-i18n='markdown.target.2'>1000 or more lines of JavaScript code in a file</li>
+			<li data-i18n='markdown.target.3'>Interactive UI ( click , message box , CSS operation ... etc)</li>
+			<li data-i18n='markdown.target.4'>Want to utilize the existing assets (jQuery , etc.)</li>
+			<li data-i18n='markdown.target.5'>Angular, React, Backbone are difficult , or there are not enough to use</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Rules</h2>
+		<p data-i18n='markdown.rules.comment'>Just observe the following rules, readability, maintainability will be greatly improved.</p>
+		<ul class='cs-list-check'>
+			<li data-i18n='markdown.rules.1'>Controller run Ajax request(Don't run Ajax request in View)</li>
+			<li data-i18n='markdown.rules.2'>The data gotten from Ajax is held by Controller, and passes to View, if necessary(Owner clarification of data)</li>
+			<li data-i18n='markdown.rules.3'>DOM operation perform in the View(It is not the $.find ()..etc in Controller)</li>
+			<li data-i18n='markdown.rules.4'>Click event handler registration is done in the immediate function of View.</li>
+		</ul>
+	</section>
+	<section>
+		<h2>jQuery.Moxa Objects</h2>
+		<p class='center'><img class='cs-er' src='pages/ER.png'></p>
+		<h3>Controller</h3>
+		<h4>$.moxa.controller(callback)</h4>
+		<p data-i18n='markdown.controller.comment'>The callback is run from the $(document).ready() or Ext.onReady(). Please implement the mainly call divided of view, ajax of execution, data processing. It can be only one registration.</p>
+		<h4>callback(views, observer, def, util, ajax)</h4>
+		<ul class='cs-list-arrow cs-list-code'>
+			<li data-i18n='markdown.controller.callback.1'>views: View objects that are registered with $.moxa.view(). You can notify the function that has been registered in the View.</li>
+			<li data-i18n='markdown.controller.callback.2'>observer: By registering the object for reception in observer.set() function, you can receive notification of observers from View.</li>
+			<li data-i18n='markdown.controller.callback.3'>def: Def object that was registered at $.moxa.def()</li>
+			<li data-i18n='markdown.controller.callback.4'>util: Util object</li>
+			<li data-i18n='markdown.controller.callback.5'>ajax: Ajax object</li>
+		</ul>
+		<h3>View</h3>
+		<h4>$.moxa.view(name, callback)</h4>
+		<p data-i18n='markdown.view.comment'>The name, please specify a string that is easy to identify in Controller callback. The callback is run from the $ (document).ready() or Ext.onReady(). Please implement the mainly Click · DOM · CSS -related processing. View you can be multiple registration.</p>
+		<h4>callback(controller, def, util, viewObserver)</h4>
+		<ul class='cs-list-arrow cs-list-code'>
+			<li data-i18n='markdown.view.callback.1'>controller: By registering the object for reception in controller.set() function, you can receive notification of observers from Controller.　In addition, you can also call notifying the registered function in Controller.</li>
+			<li data-i18n='markdown.view.callback.2'>def: Def object that was registered at $.moxa.def()</li>
+			<li data-i18n='markdown.view.callback.3'>util: Util object</li>
+			<li data-i18n='markdown.view.callback.4'>viewObserver: By registering the object for reception in viewObserver.set() function, you can receive a notification observer from another View. In addition, you can the child be notified by calling the registered function in another View.</li>
+		</ul>
+		<h3>Util</h3>
+		<h4>isEmpty(data)</h4>
+		<p data-i18n='markdown.util.empty'>It will return false if the empty string, null, [ ].</p>
+		<h4>isShow(el)</h4>
+		<p data-i18n='markdown.util.show'>It will return false if el is hidden(display: none).</p>
+		<h4>$.moxa.util(properties)</h4>
+		<p data-i18n='markdown.util.define'>By passing an object that keys and functions as a set in it, you will be able to extend the Util.</p>
+		<h3>Def</h3>
+		<h4>$.moxa.def(properties)</h4>
+		<p data-i18n='markdown.def.define'>By keys and values ​​to pass an object as a set, you can be registered in the Def. When you register a URL · setting flag · message string , etc. It is convenient.</p>
+		<h3>Ajax</h3>
+		<h4>get(url, data, success, error)</h4>
+		<p data-i18n='markdown.ajax.get.comment'>This will contact the server at the GET request.</p>
+		<ul class='cs-list-arrow cs-list-code'>
+			<li data-i18n='markdown.ajax.get.1'>url: Contact URL</li>
+			<li data-i18n='markdown.ajax.get.2'>data: The value to be transmitted to the server</li>
+			<li data-i18n='markdown.ajax.get.3'>success: Ajax event that will be called on success</li>
+			<li data-i18n='markdown.ajax.get.4'>error: Ajax event that will be called on failure</li>
+		</ul>
+		<h4>post(url, data, success, error)</h4>
+		<p data-i18n='markdown.ajax.post.comment'>This will contact the server at the POST request.</p>
+		<ul class='cs-list-arrow cs-list-code'>
+			<li data-i18n='markdown.ajax.post.1'>url: Contact URL</li>
+			<li data-i18n='markdown.ajax.post.2'>data: The value to be transmitted to the server</li>
+			<li data-i18n='markdown.ajax.post.3'>success: Ajax event that will be called on success</li>
+			<li data-i18n='markdown.ajax.post.4'>error: Ajax event that will be called on failure</li>
+		</ul>
+		<h4>$.moxa.ajax(properties)</h4>
+		<p data-i18n='markdown.ajax.define'>By passing an object that keys and functions as a set in it, you will be able to extend the Ajax. Common ajax processing, for example, it is useful to register and the like want to do a specific process in the request failure.</p>
+	</section>
+	<section>
+		<h2>Examples</h2>
+		<ul class='cs-list-arrow'>
+			<li><a href='https://github.com/makoto31/jquery.moxa/tree/master/example'>gallery</a></li>
+			<li><a href='https://github.com/makoto31/jquery.moxa/tree/master/example_gulp'>gallery with gulp</a></li>
+		</ul>
+	</section>
+	<script>
+		// twitter
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		// pocket
+		!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");
+		// tumblr
+		!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://secure.assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");
+		// google
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-53345144-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+</article>
+</body>

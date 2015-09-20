@@ -1,0 +1,200 @@
+html, body{
+	background-color: #e1e8f0;
+	color: #333;
+	font-family: 'Roboto Condensed', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, 'MS PGothic', 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+*{
+	font-weight: lighter;
+}
+
+h1{
+	font-size: 5em;
+}
+
+h2{
+	font-size: 2.25em;
+}
+
+h3{
+	font-size: 1.875em;
+}
+
+h4{
+	font-size: 1.625em;
+}
+
+p{
+	font-size: 1.25em;
+}
+
+li{
+	font-size: 1.15em;
+	line-height: 1.75em;
+}
+
+.center{
+	text-align: center;
+}
+
+.hljs{
+	border-radius: 2px;
+}
+
+.cs-board{
+	padding: 6em 1em;
+	color: white;
+}
+.cs-board.header{
+	padding: 12em 1em;
+}
+
+.cs-board:nth-child(1){
+	background-color: #6ed3cf;
+}
+.cs-board:nth-child(2){
+	background-color: #9068be;
+}
+.cs-board:nth-child(3){
+	background-color: #e62739;
+}
+.cs-board:nth-child(4){
+	background-color: #55595d;
+}
+
+.cs-intro{
+	max-width: 38em;
+	margin: auto;
+}
+
+.cs-button{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #e62739;
+    padding: .5em 2em;
+    border-radius: 2px;
+    -webkit-transition: background-color 0.5s, color 0.5s;
+    -moz-transition: background-color 0.5s, color 0.5s;
+    -ms-transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s, color 0.5s;
+    -webkit-transition-timing-function:ease-in-out;
+    -moz-transition-timing-function:ease-in-out;
+    -ms-transition-timing-function:ease-in-out;
+    transition-timing-function:ease-in-out;
+}
+.cs-button:hover{
+	color: #e62739;
+    background-color: white;
+}
+
+.cs-sns > *{
+	display: inline-block;
+	vertical-align: text-top;
+}
+
+.cs-markdown {
+		padding: 0 1em;
+}
+
+.cs-markdown > section{
+	max-width: 790px;
+	margin: auto;
+}
+
+.cs-markdown h2{
+	border-bottom: solid 1px rgba(0, 0, 0, .25);
+}
+
+.cs-markdown h3{
+	border-left: solid 1px rgba(0, 0, 0, .25);
+	margin-bottom: 0;
+	padding-left: .25em;
+}
+
+.cs-markdown h4{
+	margin-bottom: 0;
+}
+
+.cs-er{
+	width: 100%;
+	max-width: 542px;
+}
+
+ul.cs-list-check li{
+	position: relative;
+    list-style-type: none;
+}
+
+ul.cs-list-check li:after{
+	display: block;
+	content: '';
+	position: absolute;
+	top: .65em;
+	left: -1em;
+	width: 8px;
+	height: 3px;
+	border-left: 2px solid #03D3CF;
+	border-bottom: 2px solid #03D3CF;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+
+ul.cs-list-arrow li {
+	position: relative;
+    list-style-type: none;
+}
+ul.cs-list-arrow li::after,
+ul.cs-list-arrow li::before {
+	display: block;
+	content: '';
+	position: absolute;
+}
+ul.cs-list-arrow li::after {
+	top: .35em;
+	left: -1.2em;
+	width: 14px;
+	height: 14px;
+	background-color: #03D3CF;
+	border-radius: 100%;
+}
+ul.cs-list-arrow li::before {
+	z-index: 2;
+	top: .6em;
+	left: -1em;
+	width: 4px;
+	height: 4px;
+	border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+ul.cs-list-code{
+	padding-left: 2em;
+}
+
+
+@media (max-width: 767px) {
+	h1{
+		font-size: 2.25em;
+	}
+
+	h4{
+		font-size: 1.25em;
+	}
+
+	ul{
+		padding-left: 2em;
+	}
+
+	.cs-board{
+		padding: 3em 1em;
+	}
+	.cs-board.header{
+		padding: 6em 1em;
+	}
+}
+
