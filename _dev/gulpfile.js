@@ -47,12 +47,12 @@ gulp.task('release', function(){
 	var tag = process.argv[process.argv.length - 1];
 
 	var targets = {
-		'./package.json'				: '"version": "'
-		,'./js/LICENSE.header'			: 'jQuery.Moxa: v.'
-		,'./js/jquery.moxa.js'			: 'jQuery.Moxa: v.'
-		,'../jquery.moxa.min.js'		: 'jQuery.Moxa: v.'
-		,'../bower.json'				: '"version": "'
-		,'../jquery.moxa.jquery.json'	: '"version": "'
+		'./package.json'			: '"version": "'
+		,'./js/LICENSE.header'		: 'jQuery.Moxa: v.'
+		,'./js/jquery.moxa.js'		: 'jQuery.Moxa: v.'
+		,'../jquery.moxa.min.js'	: 'jQuery.Moxa: v.'
+		,'../bower.json'			: '"version": "'
+		,'../moxa.jquery.json'		: '"version": "'
 	};
 
 	Object.keys(targets).forEach(function(aKey) {

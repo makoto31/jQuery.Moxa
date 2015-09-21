@@ -1,13 +1,13 @@
 {
-  "name": "jquery.moxa",
-  "title": "jQuery.Moxa",
+  "name": "moxa",
+  "title": "jQuery Moxa",
   "description": "Dividing a JavaScript file for jQuery.",
+  "version": "0.6.2",
   "keywords": [
     "jquery",
     "moxa",
     "library"
   ],
-  "version": "0.6.1",
   "author": {
     "name": "makoto",
     "url": "http://msitter29.hatenablog.com/"
