@@ -52,7 +52,6 @@ gulp.task('release', function(){
 		,'./js/jquery.moxa.js'		: 'jQuery.Moxa: v.'
 		,'../jquery.moxa.min.js'	: 'jQuery.Moxa: v.'
 		,'../bower.json'			: '"version": "'
-		,'../moxa.jquery.json'		: '"version": "'
 	};
 
 	Object.keys(targets).forEach(function(aKey) {

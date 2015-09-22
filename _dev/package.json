@@ -1,8 +1,8 @@
 {
-  "name": "jquery.moxa",
+  "name": "jquery-moxa.dev",
   "version": "0.6.2",
   "description": "Dividing a JavaScript file for jQuery",
-  "main": "index.js",
+  "main": "js/jquery.moxa.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,9 +10,9 @@
   	"type": "git",
   	"url": "https://github.com/makoto31/jquery.moxa.git"
   },
-  "author": "",
+  "author": "makoto",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.8.2",
     "gulp": "^3.9.0",
     "gulp-closurecompiler": "^0.1.0",
