@@ -1,7 +1,13 @@
-// jQuery.Moxa: v.0.6.0
+// jQuery.Moxa: v.0.6.1
 // http://makoto31.github.io/jQuery.Moxa
 // Licensed under MIT (https://github.com/makoto31/jQuery.Moxa/blob/master/LICENSE.txt)
-(function($){
+(function(factory){
+	if(typeof module === 'object' && typeof module.exports === 'object'){
+		module.exports = factory(require("jquery"), window, document);
+	}else{
+		factory(jQuery, window, document);
+	}
+}(function($, window, document, undefined){
 
 	var mAjax = {
 		get: function(aUrl, aData, aSuccess, aError){
@@ -178,5 +184,4 @@
 			mController = aController;
 		}
 	};
-
-}(jQuery));
+}));
