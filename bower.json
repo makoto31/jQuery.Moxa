@@ -1,6 +1,6 @@
 {
   "name": "jquery.moxa",
-  "version": "0.6.2",
+  "version": "0.6.0",
   "authors": [
     "makoto"
   ],
@@ -23,7 +23,7 @@
     "_dev",
     "example",
     "example_gulp",
-    "jquery.moxa.jquery.json"
+    "package.json"
   ],
   "dependencies":{
   	"jquery": ">=1.9.0"

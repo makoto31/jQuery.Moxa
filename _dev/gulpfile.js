@@ -48,6 +48,7 @@ gulp.task('release', function(){
 
 	var targets = {
 		'./package.json'			: '"version": "'
+		,'../package.json'			: '"version": "'
 		,'./js/LICENSE.header'		: 'jQuery.Moxa: v.'
 		,'./js/jquery.moxa.js'		: 'jQuery.Moxa: v.'
 		,'../jquery.moxa.min.js'	: 'jQuery.Moxa: v.'

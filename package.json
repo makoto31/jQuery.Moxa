@@ -1,0 +1,25 @@
+{
+  "name": "jquery-moxa",
+  "version": "0.6.0",
+  "description": "Dividing a JavaScript file for jQuery",
+  "main": "jquery.moxa.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://makoto31@github.com/makoto31/jquery.moxa.git"
+  },
+  "keywords": [
+    "jquery-plugin"
+  ],
+  "author": "makoto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makoto31/jquery.moxa/issues"
+  },
+  "homepage": "http://makoto31.github.io/jquery.moxa",
+  "dependencies": {
+    "jquery": ">=1.9.0"
+  }
+}
