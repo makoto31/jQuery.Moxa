@@ -89,6 +89,10 @@ li{
     background-color: white;
 }
 
+.cs-sns{
+	font-size: initial;
+}
+
 .cs-sns > *{
 	display: inline-block;
 	vertical-align: text-top;

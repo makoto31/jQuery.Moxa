@@ -27,7 +27,7 @@
 	<meta property='og:type' content='article' />
 	<meta name="twitter:card" content="summary" />
 
-	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'>
+	<link rel='shortcut icon' href='pages/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='pages/normalize.css'>
 	<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github.min.css'>
 	<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,300italic'>
@@ -46,6 +46,7 @@
 	<meta itemprop="datePublished" content="2015-09-23"/>
 </head>
 <body>
+<div id="fb-root"></div>
 <article>
 	<section class='cs-board header'>
 		<div>
@@ -77,6 +78,7 @@
 	<section>
 		<h4 class='cs-sns'>
 			<a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+			<div class="fb-share-button" data-href="http://makoto31.github.io/jquery.moxa/" data-layout="button"></div>
 			<a class="tumblr-share-button" data-color="blue" data-notes="none" href="https://embed.tumblr.com/share"></a>
 			<a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
 			<a href="http://b.hatena.ne.jp/entry/http://makoto31.github.io/jquery.moxa/" class="hatena-bookmark-button" data-hatena-bookmark-title="jquery.moxa" data-hatena-bookmark-layout="standard-noballoon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
@@ -237,6 +239,14 @@ $.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
 	<script>
 		// twitter
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		// facebook
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4&appId=435755406609945";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 		// pocket
 		!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");
 		// tumblr
