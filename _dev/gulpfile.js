@@ -76,7 +76,7 @@ gulp.task('release', function(){
 	});
 
 	console.log('\033[31m### 1. npm publish');
-	console.log('\033[31m### 2. index.html code version update.');
+	console.log('\033[31m### 2. index.html code version & datePublished.');
 });
 
 gulp.task('default', ['js', 'watch', 'server']);
