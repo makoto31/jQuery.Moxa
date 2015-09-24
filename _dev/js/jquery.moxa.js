@@ -1,4 +1,4 @@
-// jQuery.Moxa: v.0.6.2
+// jQuery.Moxa: v.0.6.3
 // http://makoto31.github.io/jquery.moxa
 // Licensed under MIT (https://github.com/makoto31/jquery.moxa/blob/master/LICENSE.txt)
 (function(factory){
