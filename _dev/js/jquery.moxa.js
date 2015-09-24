@@ -1,6 +1,6 @@
 // jQuery.Moxa: v.0.6.2
-// http://makoto31.github.io/jQuery.Moxa
-// Licensed under MIT (https://github.com/makoto31/jQuery.Moxa/blob/master/LICENSE.txt)
+// http://makoto31.github.io/jquery.moxa
+// Licensed under MIT (https://github.com/makoto31/jquery.moxa/blob/master/LICENSE.txt)
 (function(factory){
 	if(typeof module === 'object' && typeof module.exports === 'object'){
 		module.exports = factory(require("jquery"), window, document);
