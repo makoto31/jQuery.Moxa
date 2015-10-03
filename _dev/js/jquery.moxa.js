@@ -81,14 +81,17 @@
 		var viewObserver = {
 			set: function(aParam){
 				if(!$.isPlainObject(aParam)){
+					console.warn('Moxa Error[v2v]: no plain object');
 					return;
 				}
 				var caller = arguments.callee.caller;
 				Object.keys(aParam).forEach(function(aKey){
 					if(viewObserver[aKey]){
+						console.warn('Moxa Error[v2v]: already exists key. ' + aKey);
 						return;
 					}
 					if(!$.isFunction(aParam[aKey])){
+						console.warn('Moxa Error[v2v]: no function. ' + aKey);
 						return;
 					}
 					viewObserver[aKey] = function(){
@@ -102,6 +105,7 @@
 			view: {
 				set: function(aParam){
 					if(!$.isPlainObject(aParam)){
+						console.warn('Moxa Error[v2c]: no plain object');
 						return;
 					}
 
@@ -112,9 +116,11 @@
 					var caller = arguments.callee.caller;
 					Object.keys(aParam).forEach(function(aKey){
 						if(view2controller.controller[aKey]){
+							console.warn('Moxa Error[v2c]: already exists key. ' + aKey);
 							return;
 						}
 						if(!$.isFunction(aParam[aKey])){
+							console.warn('Moxa Error[v2c]: no function. ' + aKey);
 							return;
 						}
 						mView[name][aKey] = function(){
@@ -126,14 +132,17 @@
 			,controller: {
 				set: function(aParam){
 					if(!$.isPlainObject(aParam)){
+						console.warn('Moxa Error[c2v]: no plain object');
 						return;
 					}
 					var caller = arguments.callee.caller;
 					Object.keys(aParam).forEach(function(aKey){
 						if(view2controller.view[aKey]){
+							console.warn('Moxa Error[c2v]: already exists key. ' + aKey);
 							return;
 						}
 						if(!$.isFunction(aParam[aKey])){
+							console.warn('Moxa Error[c2v]: no function. ' + aKey);
 							return;
 						}
 						view2controller.view[aKey] = function(){
@@ -173,9 +182,11 @@
 		}
 		,view: function(aName, aFn){
 			if($.type(aName) != 'string'){
+				console.warn('Moxa Error[v]: no name.');
 				return;
 			}
 			if(!$.isFunction(aFn)){
+				console.warn('Moxa Error[v]: no function. ' + aName);
 				return;
 			}
 			mView[aName] = aFn;
