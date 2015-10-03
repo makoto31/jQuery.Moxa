@@ -17,6 +17,11 @@ body{
 	font-size: 1.5em;
 }
 
+.cs-main .cs-warn{
+	color: #333;
+    font-style: italic;
+}
+
 .cs-header{
 	position: relative;
 	letter-spacing: -0.4em;
@@ -117,7 +122,6 @@ body{
 .cs-thums > div.add > span{
 	position: absolute;
 	left: 0;
-	bottom: -3em;
 	letter-spacing: normal;
 	width: 100%;
     display: block;
@@ -130,6 +134,15 @@ body{
     -ms-transition: .3s;
     transition: .3s;
 }
-.cs-thums > div.add:hover > span{
+.cs-thums > div.add > span:first-child{
+	top: -3em;
+}
+.cs-thums > div.add:hover > span:first-child{
+	top: 0;
+}
+.cs-thums > div.add > span:last-child{
+	bottom: -3em;
+}
+.cs-thums > div.add:hover > span:last-child{
 	bottom: 0;
 }

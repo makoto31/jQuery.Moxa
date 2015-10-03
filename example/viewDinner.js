@@ -47,6 +47,7 @@ $.moxa.view('dinner', function(aController, aDef, aUtil, aViewObserver){
 
 		var ret = $([
 			'<div>'
+				,aData ? '' : '<span>　</span>'
 				,'<div>'
 					,aData ? '<img src="res/' + aData + '">' : ''
 				,'</div>'
@@ -90,5 +91,9 @@ $.moxa.view('dinner', function(aController, aDef, aUtil, aViewObserver){
 				,display: ''
 			});
 		}
+
+		$('#id-warn').empty().text('success add images.').hide().velocity('fadeIn', {
+			duration: 700
+		});
 	}
 });

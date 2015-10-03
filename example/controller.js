@@ -5,6 +5,21 @@ $.moxa.controller(function(aViews, aObserver, aDef, aUtil, aAjax){
 		dinnerJson: function(aTime){
 			aAjax.get('res/dinner.json?v=' + aTime, null, successDinner);
 		}
+		,test: function(){
+
+			// aObserver set() text.
+			console.log('case 7');
+			aObserver.set($('div'));
+
+			console.log('case 8');
+			aObserver.set({
+				set: function(){}
+			});
+			console.log('case 9');
+			aObserver.set({
+				foo: 'foo'
+			});
+		}
 	});
 
 	// data store.
