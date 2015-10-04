@@ -1,14 +1,23 @@
-# jQuery.Moxa
+# [jQuery.Moxa](http://makoto31.github.io/jquery.moxa/ "jQuery.Moxa")
 Dividing a JavaScript file. No global pollution. Lightweight simple library.
 
-## Installation
+## Get
+You can get it on [npm](https://www.npmjs.com/package/jquery.moxa "npm") or bower.
+```
+npm install jquery.moxa --save
+
+bower install jquery.moxa --save
+```
+If you're not into package management, [download a file](https://github.com/makoto31/jquery.moxa/releases/latest "download a file").
+
+## Setup
 Include script after the jQuery library.
 
 ```html
 <script src="/path/to/jquery.moxa.min.js"></script>
 ```
 
-## How to use
+## Usage
 
 ```javascript
 // Controller
@@ -152,6 +161,7 @@ This will contact the server at the POST request.
 By passing an object that keys and functions as a set in it, you will be able to extend the Ajax. Common ajax processing, for example, it is useful to register and the like want to do a specific process in the request failure.
 
 ## Examples
+* [gallery page using jQuery.Moxa](http://makoto31.github.io/jquery.moxa/example/example.html "gallery page using jQuery.Moxa")
 * [gallery](https://github.com/makoto31/jquery.moxa/tree/master/example "gallery")
 * [gallery with gulp](https://github.com/makoto31/jquery.moxa/tree/master/example_gulp "gallery with gulp")
 
