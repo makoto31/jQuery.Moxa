@@ -85,10 +85,16 @@
 		</h4>
 	</section>
 	<section>
-		<h2>Installation</h2>
-		<p data-i18n='markdown.installation'>Include script after the jQuery library.</p>
+		<h2>Get</h2>
+		<p><span data-i18n='markdown.get.1'>You can get it on </span><a href='https://www.npmjs.com/package/jquery.moxa'>npm</a><span data-i18n='markdown.get.2'> or bower.</span></p>
+		<pre><code>npm install jquery.moxa --save
+
+bower install jquery.moxa --save</code></pre>
+		<p><span data-i18n='markdown.get.3'>If you're not into package management, </span><a href='https://github.com/makoto31/jquery.moxa/releases/latest'><span data-i18n='markdown.get.4'>download a file</span></a>.</p>
+		<h2>Setup</h2>
+		<p data-i18n='markdown.setup'>Include script after the jQuery library.</p>
 		<pre><code>&lt;script src="/path/to/jquery.moxa.min.js"&gt;&lt;/script&gt;</code></pre>
-		<h2 id='howtouse'>How to use</h2>
+		<h2 id='howtouse'>Usage</h2>
 		<pre><code>
 // Controller
 $.moxa.controller(function(aViews, aObserver, aDef, aUtil, aAjax){
@@ -142,9 +148,9 @@ $.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
     // $.append(), $.remove(), $hide(), $.addClass()........etc
 });
 		</code></pre>
-		<p data-i18n='markdown.use.1'>controller's function is executed from $(document).ready() or Ext.onReady().</p>
-		<p data-i18n='markdown.use.2'>jQuery.Moxa By is to implement the process for each role(controller, view..etc) to provide, is suppressed to be a global function definition.</p>
-		<p data-i18n='markdown.use.3'>Each role function of the argument , or , is done via observer of jQuery.Moxa. And also it works to concat files and minify by gulp.</p>
+		<p data-i18n='markdown.usage.1'>controller's function is executed from $(document).ready() or Ext.onReady().</p>
+		<p data-i18n='markdown.usage.2'>jQuery.Moxa By is to implement the process for each role(controller, view..etc) to provide, is suppressed to be a global function definition.</p>
+		<p data-i18n='markdown.usage.3'>Each role function of the argument , or , is done via observer of jQuery.Moxa. And also it works to concat files and minify by gulp.</p>
 	</section>
 	<section>
 		<h2>Features</h2>

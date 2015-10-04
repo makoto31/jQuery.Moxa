@@ -5,8 +5,7 @@
 		,"simple": "覚えるのは簡単です。あなたならすぐにでも使いこなせるでしょう。jQuery.Moxaはシンプルなルールを提供するだけです。もし多くの機能を望むなら他のライブラリを使いましょう。"
 	}
 	,"markdown":{
-		"installation": "jQueryの後に読み込んでください"
-		,"features": {
+		"features": {
 			"1": "役割でソースファイルを分ける"
 			,"2": "軽量、シンプル、イージー"
 			,"3": "No Single Pag Applicatin framework"
@@ -26,7 +25,14 @@
 			,"3": "DOM操作はViewで行う（Controllerで$.find()等をしない）"
 			,"4": "クリックイベント登録はViewの即時関数の中で行う（可読性の向上）"
 		}
-		,"use": {
+		,"get": {
+			"1": ""
+			,"2": "かbowerから取得できます。"
+			,"3": "もしパッケージマネージャを使っていないなら、"
+			,"4": "こちらから"
+		}
+		,"setup": "jQueryの後に読み込んでください"
+		,"usage": {
 			"1": "controllerの関数は$(document).ready()もしくはExt.onReady()から実行されます。"
 			,"2": "jQuery.Moxaが提供する役割(controller, view..etc)ごとに処理を実装することで、グローバル関数定義することを抑制されます。"
 			,"3": "各役割は関数の引数、または、jQuery.Moxaのオブザーバー経由で実行されるため、gulp等での結合&minifyしても問題なく動作します。"
