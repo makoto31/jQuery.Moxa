@@ -39,6 +39,10 @@
 
 			var ret = false;
 
+			if(typeof aData == 'function'){
+				return ret;
+			}
+
 			if(aData === null){
 				ret = true;
 
@@ -55,6 +59,9 @@
 				}
 
 			}else if(aData.length === 0){
+				ret = true;
+
+			}else if(Object.keys(aData).length === 0){
 				ret = true;
 			}
 
@@ -84,7 +91,7 @@
 					console.warn('Moxa Error[v2v]: no plain object');
 					return;
 				}
-				var caller = arguments.callee.caller;
+
 				Object.keys(aParam).forEach(function(aKey){
 					if(viewObserver[aKey]){
 						console.warn('Moxa Error[v2v]: already exists key. ' + aKey);
@@ -95,7 +102,7 @@
 						return;
 					}
 					viewObserver[aKey] = function(){
-						aParam[aKey].apply(caller, Array.prototype.slice.call(arguments));
+						aParam[aKey].apply(aParam, Array.prototype.slice.call(arguments));
 					}
 				});
 			}
@@ -113,7 +120,6 @@
 					var name = arguments.callee.caller.caller.arguments[0];
 					mView[name] = {};
 
-					var caller = arguments.callee.caller;
 					Object.keys(aParam).forEach(function(aKey){
 						if(view2controller.controller[aKey]){
 							console.warn('Moxa Error[v2c]: already exists key. ' + aKey);
@@ -124,7 +130,7 @@
 							return;
 						}
 						mView[name][aKey] = function(){
-							aParam[aKey].apply(caller, Array.prototype.slice.call(arguments));
+							aParam[aKey].apply(aParam, Array.prototype.slice.call(arguments));
 						}
 					});
 				}
@@ -135,7 +141,7 @@
 						console.warn('Moxa Error[c2v]: no plain object');
 						return;
 					}
-					var caller = arguments.callee.caller;
+
 					Object.keys(aParam).forEach(function(aKey){
 						if(view2controller.view[aKey]){
 							console.warn('Moxa Error[c2v]: already exists key. ' + aKey);
@@ -146,7 +152,7 @@
 							return;
 						}
 						view2controller.view[aKey] = function(){
-							aParam[aKey].apply(caller, Array.prototype.slice.call(arguments));
+							aParam[aKey].apply(aParam, Array.prototype.slice.call(arguments));
 						}
 					});
 				}
@@ -174,7 +180,7 @@
 		def: function(aDef){
 			$.extend(mDef, aDef);
 		}
-		,ajax: function(ajax){
+		,ajax: function(aAjax){
 			$.extend(mAjax, aAjax);
 		}
 		,util: function(aUtil){
