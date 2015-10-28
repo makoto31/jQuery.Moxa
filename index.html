@@ -42,6 +42,70 @@
 		hljs.initHighlightingOnLoad();
 	</script>
 	<script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+	<script src='jquery.moxa.min.js'></script>
+	<script>
+		$.moxa.controller(function(aViews, aObserver, aDef, aUtil, aAjax){
+
+			aViews.playground.init();
+
+			return {
+				onLoadScript: function(){
+					return $('#id-play-text').val();
+				}
+			};
+		});
+
+		$.moxa.view('playground', function(aController, aDef, aUtil, aViewObserver){
+
+			 aController.set({
+			 	init: doInit
+			 });
+
+			 (function(){
+			 	$('#id-run').click(function(){
+			 		$('#id-play-frame')[0].contentDocument.location.reload(true);
+			 	});
+
+			 	$('#id-play-text').focus(function(){
+
+					window.document.onkeydown = function(aEvent){
+						if(aEvent.keyCode !== 9) {
+							return;
+						}
+
+						var tab = '\t';
+						var el = document.getElementById(this.activeElement.id); 
+						var startPos = el.selectionStart;
+						var endPos = el.selectionEnd;
+						var text  = el.value.substr(0, startPos) + tab + el.value.substr(endPos);
+						$(el).val(text);
+
+						var cPos = startPos + tab.length;
+						el.setSelectionRange(cPos, cPos);
+
+						aEvent.preventDefault();
+					}
+				}).blur(function(){
+					// default.
+					window.document.onkeydown = function(aEvent){
+						return true;
+					}
+				});
+			 })();
+
+			 function doInit(){
+
+			 	$(window).resize(doResize);
+			 	doResize();
+			 };
+
+			 function doResize(){
+			 	var height = $(window).height() * 0.8;
+			 	$('#id-play-area').height(height);
+			 };
+
+		});
+	</script>
 	
 	<meta itemprop="datePublished" content="2015-10-10T12:4:11+09:00"/>
 </head>
@@ -98,54 +162,54 @@ bower install jquery.moxa --save</code></pre>
 		<pre><code>
 // Controller
 $.moxa.controller(function(aViews, aObserver, aDef, aUtil, aAjax){
-    // set view -> controller received functions
-    aObserver.set({
-        some: function(data){
-        	// do something.
-        }
-    });
+	// set view -> controller received functions
+	aObserver.set({
+		some: function(data){
+			// do something.
+		}
+	});
 
-    // ajax data.
-    var mData = {
-     	some: null
-    };
+	// ajax data.
+	var mData = {
+	 	some: null
+	};
 
-    // get somejson
-    aAjax.get('some.json', function(data){
-    	// save data.
-    	mData.some = data;
-        // send data to view
-        aViews.top.init(mData.some);
-    });
+	// get somejson
+	aAjax.get('some.json', null, function(data){
+		// save data.
+		mData.some = data;
+		// send data to view
+		aViews.top.init(mData.some);
+	});
 
-    // window.Moxa is assigned the object. be able to access of global.
-    return {
-     	swf: function(){
-     		// do something.
-     	}
-    }
+	// window.Moxa is assigned the object. be able to access of global.
+	return {
+	 	swf: function(){
+	 		// do something.
+	 	}
+	}
 });
 		</code></pre>
 		<code><pre>
 // Top View
 $.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
-    // set controller -> view received functions
-    aController.set({
-        init: function(data){
-            // do something.
-        }
-    });
+	// set controller -> view received functions
+	aController.set({
+		init: function(data){
+			// do something.
+		}
+	});
 
-    // click events.
-    (function(){
-        $('#button').on('click', function(){
-            // trigger to controller.
-            aController.some();
-        });
-    })();
+	// click events.
+	(function(){
+		$('#button').on('click', function(){
+			// trigger to controller.
+			aController.some();
+		});
+	})();
 
-    // define functions.
-    // $.append(), $.remove(), $hide(), $.addClass()........etc
+	// define functions.
+	// $.append(), $.remove(), $hide(), $.addClass()........etc
 });
 		</code></pre>
 		<p data-i18n='markdown.usage.1'>controller's function is executed from $(document).ready() or Ext.onReady().</p>
@@ -243,28 +307,119 @@ $.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
 			<li><a href='https://github.com/makoto31/jquery.moxa/tree/master/example_gulp'>gallery source with gulp</a></li>
 		</ul>
 	</section>
-	<script>
-		// twitter
-		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-		// facebook
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4&appId=435755406609945";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-		// pocket
-		!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");
-		// tumblr
-		!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://secure.assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");
-		// google
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-53345144-2', 'auto');
-		ga('send', 'pageview');
-	</script>
 </article>
+<article>
+	<section id='playground' class='cs-playground'>
+		<h2>Playground</h2>
+		<div id='id-play-area'>
+			<div>
+				<iframe id='id-play-frame' src='example/playground.html' frameborder='0'></iframe>
+			</div>
+			<div>
+				<div id='id-run' class='cs-run'>RUN</div>
+				<textarea id='id-play-text' spellcheck='false'>
+
+// Controller
+$.moxa.controller(function(aViews, aObserver, aDef, aUtil, aAjax){
+
+	aObserver.set({
+		onAdd: function(){
+			// 5. get json
+			aAjax.get('res/dinner.json', null, successDinner);
+		}
+	});
+
+	// ajax data.
+	var mData = {
+	 	some: null
+	 	,dinner: null
+	};
+
+	// 1. get json
+	aAjax.get('res/init.json', null, successInit);
+
+	function successInit(data){
+		// 2. send data to view
+		mData.some = data;
+		aViews.top.init(mData.some);
+	}
+
+	function successDinner(data){
+		// 6. send data to view
+		mData.dinner = data;
+		aViews.top.dinner(mData.dinner);
+	}
+});
+
+// Top View
+$.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
+
+	aController.set({
+		init: onInit
+		,dinner: onDinner
+	});
+
+	// click events.
+	(function(){
+		$('body').on('click', '#button', onClickAdd);
+	})();
+
+	function onInit(aData){
+
+		// 3. add images.
+		var parent = $('#id-picture').hide();
+		for(var i = 0; i < aData.breakfast.length; i++){
+			var thum = $('<img src="res/' + aData.breakfast[i] + '">');
+			parent.append(thum);
+		}
+		parent.velocity('fadeIn', {duration: 1000});
+
+		parent.before('<button id="button">ADD</button>');
+	}
+
+	function onClickAdd(){
+		// 4. to controller
+		aController.onAdd();
+	}
+
+	function onDinner(aData){
+		// 7. add images.
+		var parent = $('#id-picture');
+		var limit = aData.dinner.length;
+		for(var i = 0; i < limit; i++){
+			var thum = $('<img src="res/' + aData.dinner[i] + '">')
+				.css('opacity', '0')
+				.velocity('fadeIn', {delay: 200 * (limit - i)});
+			parent.prepend(thum);
+		}
+	}
+});
+				</textarea>
+			</div>
+		</div>
+	</section>
+</article>
+<script>
+	// twitter
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	// facebook
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4&appId=435755406609945";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	// pocket
+	!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");
+	// tumblr
+	!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://secure.assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");
+	// google
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-53345144-2', 'auto');
+	ga('send', 'pageview');
+</script>
 </body>

@@ -34,6 +34,15 @@ li{
 	line-height: 1.75em;
 }
 
+textarea, code{
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+}
+code{
+	font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace, monospace;
+}
+
 .center{
 	text-align: center;
 }
@@ -202,3 +211,72 @@ ul.cs-list-code{
 	}
 }
 
+.cs-playground{
+	background-color: #6ed3cf;
+	padding: 1em;
+}
+
+.cs-playground > h2{
+	color: white;
+	margin: .25em 0;
+}
+
+.cs-playground > div{
+	position: relative;
+}
+
+.cs-playground > div > div{
+	position: relative;
+	display: inline-block;
+	height: 100%;
+}
+.cs-playground > div > div:first-child{
+	width: 33%;
+}
+.cs-playground > div > div:last-child{
+	width: 66%;
+}
+
+.cs-playground > div > div > *{
+	height: 100%;
+	width: 100%;
+	border: none;
+}
+
+.cs-playground > div > div:first-child > iframe{
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.cs-playground textarea{
+	box-sizing: border-box;
+	padding: .5em;
+	font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace, monospace;
+	color: #333;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.cs-playground .cs-run{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5em;
+    height: 1.5em;
+    text-align: center;
+    background: #9068be;
+    border-radius: 0 0 2px 0;
+    line-height: 1.5em;
+    color: white;
+    cursor: pointer;
+    opacity: 0.5;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    -webkit-transition-timing-function:ease-in-out;
+    -moz-transition-timing-function:ease-in-out;
+    -ms-transition-timing-function:ease-in-out;
+    transition-timing-function:ease-in-out;
+}
+.cs-playground .cs-run:hover{
+    opacity: 1;
+}

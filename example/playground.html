@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Playground</title>
+<link href='playground.css' rel='stylesheet' type='text/css'>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js'></script>
+<script src='../jquery.moxa.min.js'></script>
+<script>
+	window.onerror = function (message, file, line, col, error) {
+		$('#id-warn').text(error.message);
+		return true;
+	};
+
+	var code = parent.Moxa.onLoadScript();
+	var headId = document.getElementsByTagName('head')[0];
+	var newscript = document.createElement('script');
+	newscript.innerHTML = code;
+	headId.appendChild(newscript);
+</script>
+</head>
+<body>
+	<div class='cs-main'>
+		<div id='id-warn' class='cs-warn'></div>
+		<div id='id-picture' class='cs-picture'></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+@charset 'utf-8';
+
+body{
+	font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+	font-size: 16px;
+	color: white;
+}
+
+.cs-main{
+	margin: auto;
+}
+
+.cs-main > p{
+	color: black;
+	font-size: 1.5em;
+}
+
+.cs-main .cs-warn{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #e62739;
+	color: white;
+	padding: 0 .5em;
+}
+
+.cs-picture > img{
+	width: 50%;
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    -ms-transition: -ms-transform 0.6s;
+    transition: transform 0.6s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+
+    -webkit-filter: grayscale(90%) blur(2px);
+    -moz-filter: grayscale(90%) blur(2px);
+    -ms-filter: grayscale(90%) blur(2px);
+    filter: grayscale(90%) blur(2px);
+}
+.cs-picture > img:hover{
+    -webkit-transform: translateX(0) rotateY(0);
+    -moz-transform: translateX(0) rotateY(0);
+    -ms-transform: translateX(0) rotateY(0);
+    transform: translateX(0) rotateY(0);
+
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    -ms-filter: grayscale(50%);
+    filter: grayscale(50%);
+}
+
+
+
+.cs-header{
+	position: relative;
+	letter-spacing: -0.4em;
+}
+
+.cs-header > div{
+	width: 50%;
+	display: inline-block;;
+	box-sizing: border-box;
+	letter-spacing: normal;
+	text-align: center;
+	background: #3fb0ac;
+	line-height: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    -ms-transition: .6s;
+    transition: .6s;
+}
+.cs-header > div:first-child{
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+.cs-header > div:last-child{
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+.cs-header > div.disable{
+	background: #fae596;
+	cursor: pointer;
+}
+.cs-header > div.disable:hover{
+	background: #173e43;
+}
+
+.cs-thums{
+	position: relative;
+	letter-spacing: -0.4em;
+}
+.cs-thums > div{
+	width: 294px;
+	height: 290px;
+	display: inline-block;
+	box-sizing: border-box;
+	margin-left: 3px;
+	margin-bottom: 6px;
+	vertical-align:bottom;
+	background-color: white;
+	padding: 10px 10px 50px 10px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+}
+.cs-thums > div > div{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 2px;
+
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    -ms-transition: -ms-transform 0.6s;
+    transition: transform 0.6s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+
+    -webkit-filter: grayscale(90%) blur(2px);
+    -moz-filter: grayscale(90%) blur(2px);
+    -ms-filter: grayscale(90%) blur(2px);
+    filter: grayscale(90%) blur(2px);
+}
+.cs-thums > div:hover > div{
+    -webkit-transform: translateX(0) rotateY(0);
+    -moz-transform: translateX(0) rotateY(0);
+    -ms-transform: translateX(0) rotateY(0);
+    transform: translateX(0) rotateY(0);
+
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    -ms-filter: grayscale(50%);
+    filter: grayscale(50%);
+}
+
+.cs-thums > div.add{
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+}
+.cs-thums > div.add > span{
+	position: absolute;
+	left: 0;
+	letter-spacing: normal;
+	width: 100%;
+    display: block;
+    text-align: center;
+    line-height: 3em;
+    background-color: rgba(63, 176, 172, 0.5);
+
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    transition: .3s;
+}
+.cs-thums > div.add > span:first-child{
+	top: -3em;
+}
+.cs-thums > div.add:hover > span:first-child{
+	top: 0;
+}
+.cs-thums > div.add > span:last-child{
+	bottom: -3em;
+}
+.cs-thums > div.add:hover > span:last-child{
+	bottom: 0;
+}

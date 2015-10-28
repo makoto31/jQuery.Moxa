@@ -29,7 +29,10 @@ http.createServer(function(request,response){
             var extname = path.extname(req_path);
             if(extname == '.css'){
                 mime = {"Content-Type": "text/css"};
+            }else if(extname == '.json'){
+                mime = {"Content-Type": "application/json"};
             }
+
             response.writeHeader(200, mime);  
             response.write(file, "binary");  
             response.end();
