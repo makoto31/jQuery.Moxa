@@ -229,6 +229,7 @@ ul.cs-list-code{
 	position: relative;
 	display: inline-block;
 	height: 100%;
+	vertical-align: top;
 }
 .cs-playground > div > div:first-child{
 	width: 33%;
