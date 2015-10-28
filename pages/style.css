@@ -223,6 +223,7 @@ ul.cs-list-code{
 
 .cs-playground > div{
 	position: relative;
+	letter-spacing: -0.4em;
 }
 
 .cs-playground > div > div{
@@ -230,9 +231,11 @@ ul.cs-list-code{
 	display: inline-block;
 	height: 100%;
 	vertical-align: top;
+	letter-spacing: normal;
 }
 .cs-playground > div > div:first-child{
 	width: 33%;
+	margin-right: 1px;
 }
 .cs-playground > div > div:last-child{
 	width: 66%;
