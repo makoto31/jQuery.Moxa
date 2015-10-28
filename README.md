@@ -35,7 +35,7 @@ $.moxa.controller(function(aViews, aObserver, aDef, aUtil, aAjax){
     };
 
     // get somejson
-    aAjax.get('some.json', function(data){
+    aAjax.get('some.json', null, function(data){
     	// save data.
     	mData.some = data;
         // send data to view
@@ -164,6 +164,9 @@ By passing an object that keys and functions as a set in it, you will be able to
 * [gallery page using jQuery.Moxa](http://makoto31.github.io/jquery.moxa/example/example.html "gallery page using jQuery.Moxa")
 * [gallery](https://github.com/makoto31/jquery.moxa/tree/master/example "gallery")
 * [gallery with gulp](https://github.com/makoto31/jquery.moxa/tree/master/example_gulp "gallery with gulp")
+
+## Playground
+* [jQuery.Moxa Playground](http://makoto31.github.io/jquery.moxa/#playground "jQuery.Moxa Playground")
 
 ## License
 Licensed under [MIT License](https://github.com/makoto31/jquery.moxa/blob/master/LICENSE.txt "MIT License")
