@@ -369,10 +369,10 @@ $.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
 		// 3. add images.
 		var parent = $('#id-picture').hide();
 		for(var i = 0; i < aData.breakfast.length; i++){
-			var thum = $('<img src="res/' + aData.breakfast[i] + '">');
+			var thum = $('<div><img src="res/' + aData.breakfast[i] + '"></div>');
 			parent.append(thum);
 		}
-		parent.velocity('fadeIn', {duration: 1000});
+		parent.velocity('fadeIn', {duration: 1000, display: ''});
 
 		parent.before('<button id="button">ADD</button>');
 	}
@@ -387,9 +387,9 @@ $.moxa.view('top', function(aController, aDef, aUtil, aViewObserver){
 		var parent = $('#id-picture');
 		var limit = aData.dinner.length;
 		for(var i = 0; i < limit; i++){
-			var thum = $('<img src="res/' + aData.dinner[i] + '">')
+			var thum = $('<div><img src="res/' + aData.dinner[i] + '"></div>')
 				.css('opacity', '0')
-				.velocity('fadeIn', {delay: 200 * (limit - i)});
+				.velocity('fadeIn', {delay: 200 * (limit - i), display: ''});
 			parent.prepend(thum);
 		}
 	}
