@@ -1,4 +1,4 @@
-// jQuery.Moxa: v.0.6.5
+// jQuery.Moxa: v.0.6.6
 // http://makoto31.github.io/jquery.moxa
 // Licensed under MIT (https://github.com/makoto31/jquery.moxa/blob/master/LICENSE.txt)
 (function(factory){
@@ -61,8 +61,11 @@
 			}else if(aData.length === 0){
 				ret = true;
 
-			}else if(Object.keys(aData).length === 0){
-				ret = true;
+			}else if($.isPlainObject(aData)){
+
+				if(Object.keys(aData).length === 0){
+					ret = true;
+				}
 			}
 
 			return ret;

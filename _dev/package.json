@@ -1,6 +1,6 @@
 {
   "name": "jquery.moxa.dev",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Dividing a JavaScript file for jQuery",
   "main": "js/jquery.moxa.js",
   "scripts": {
